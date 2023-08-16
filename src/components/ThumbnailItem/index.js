@@ -11,12 +11,14 @@ const ThumbnailItem = props => {
 
   return (
     <li className="list-item">
-      <img
+    <button type="button>  
+    <img
         src={thumbnailUrl}
         alt={thumbnailAltText}
         className={`thumbnail-image ${ActiveClassName}`}
         onClick={changeImage}
       />
+          </button>
     </li>
   )
 }
