@@ -1,0 +1,24 @@
+.app-container {
+  padding: 30px;
+}
+.image {
+  border-radius: 13px;
+  min-width: 60%;
+}
+.title {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 20px;
+  color: #1e293b;
+}
+.descriptipon {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #64748b;
+}
+.thumbnail-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+}

@@ -1,0 +1,13 @@
+.list-item {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 3px;
+}
+.thumbnail-image {
+  width: 100%;
+  opacity: 0.5;
+}
+.selected {
+  opacity: none;
+}
