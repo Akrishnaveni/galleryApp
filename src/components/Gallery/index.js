@@ -96,7 +96,7 @@ class Gallery extends Component {
               key={each.id}
               thumbnailDetails={each}
               onclick={this.onClickThumbnail}
-              isActive={id === each.id}
+              isActive={activeImage.id === each.id}
             />
           ))}
         </ul>
