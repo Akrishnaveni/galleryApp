@@ -1,7 +1,8 @@
-import './index.css'
-
 import {Component} from 'react'
+
 import ThumbnailItem from '../ThumbnailItem'
+
+import './index.css'
 
 const imagesList = [
   {
@@ -73,35 +74,42 @@ const imagesList = [
     thumbnailAltText: 'nature river thumbnail',
   },
 ]
-class Gallery extends Component {
-  state = {activeImage: imagesList[0]}
 
-  onClickThumbnail = id => {
-    const selectedImage = imagesList.filter(each => each.id === id)
-    this.setState({activeImage: selectedImage})
+class Gallery extends Component {
+  state = {
+    activeThumbnailId: imagesList[0].id,
+  }
+
+  setActiveThumbnailId = id => {
+    this.setState({
+      activeThumbnailId: id,
+    })
   }
 
   render() {
-    const {activeImage} = this.state
-    const {id, imageUrl, imageAltText} = activeImage
+    const {activeThumbnailId} = this.state
+    const {imageUrl, imageAltText} = imagesList[activeThumbnailId]
 
     return (
       <div className="app-container">
-        <img src={imageUrl} alt={imageAltText} className="image" />
-        <h1 className="title">Nature photography</h1>
-        <p className="description">Nature photography by Rahul</p>
-        <ul className="thumbnail-container">
-          {imagesList.map(each => (
-            <ThumbnailItem
-              key={each.id}
-              thumbnailDetails={each}
-              onclick={this.onClickThumbnail}
-              isActive={id === each.id}
-            />
-          ))}
-        </ul>
+        <div className="gallery-container">
+          <img src={imageUrl} className="selected-image" alt={imageAltText} />
+          <h1 className="heading">Nature Photography</h1>
+          <p className="description">Nature Photography by Rahul</p>
+          <ul className="thumbnails-list">
+            {imagesList.map(eachImage => (
+              <ThumbnailItem
+                key={eachImage.id}
+                imageDetails={eachImage}
+                isActive={activeThumbnailId === eachImage.id}
+                setActiveThumbnailId={this.setActiveThumbnailId}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     )
   }
 }
+
 export default Gallery
